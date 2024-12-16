@@ -152,11 +152,11 @@ app.delete("/concesionarios/:id/coches/:cocheId", (req, res) => {
   const cocheId = req.params.cocheId;
   const concesionario = concesionarios[id];
   if (concesionario) {
-    concesionario.coches = concesionario.coches.filter((_, index) => index !== parseInt(cocheId));
+    concesionario.coches = concesionario.coches.filter(
+      (_, index) => index !== parseInt(cocheId),
+    );
     res.json({ message: "Coche eliminado" });
   } else {
     res.status(404).json({ message: "Concesionario no encontrado" });
   }
 });
-
-
