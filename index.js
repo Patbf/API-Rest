@@ -8,7 +8,10 @@
 // Importamos las bibliotecas necesarias.
 // Concretamente el framework express.
 const express = require("express");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
 const helmet = require("helmet");
+
 const { MongoClient, ServerApiVersion,ObjectId } = require('mongodb');
 
 // Inicializamos la aplicación
@@ -19,9 +22,10 @@ const uri = "mongodb+srv://patriciabf89:S6JapciHED9vJxJv@cluster0.v4wlb.mongodb.
 app.use(helmet());
 
 
+
 // Indicamos que la aplicación puede recibir JSON (API Rest)
 app.use(express.json());
-
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
