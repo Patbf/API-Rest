@@ -14,10 +14,11 @@
       "Coche": {
         "type": "object",
         "properties": {
-          "marca": { "type": "string" },
-          "modelo": { "type": "string" }
+          "modelo": { "type": "string" },
+          "cv": { "type": "string" },
+          "precio": { "type": "string" }
         },
-        "required": ["marca", "modelo"]
+        "required": ["marca", "cv","precio"]
       },
       "Concesionario": {
         "type": "object",
